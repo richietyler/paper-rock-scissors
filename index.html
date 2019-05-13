@@ -5,7 +5,31 @@
 	</head>
 	<body>
 		<script>
-			
+			function computerPlay(){
+				computerGuess = ['Paper','Scissors','Rock']
+				return computerGuess[Math.floor(Math.random() * computerGuess.length)];
+			}
+
+			function playerPlay() {
+				playerGuess = prompt("Enter Paper, Scissors or Rock");
+				return playerGuess.charAt(0).toUpperCase() + playerGuess.slice(1);;
+			}
+
+			function playRound(x, y) {
+				if (x == y) {
+					return "Tie! " + x + " is equal to " + y;
+				} else if (x > y) {
+					return "You win! " + x + " beats " + y;
+				} else {
+					return "You lose! " + y + " beats " + x;
+				}
+				
+			}
+
+			const computerSelection = computerPlay();
+			const playerSelection = playerPlay();
+
+			console.log(playRound(playerSelection, computerSelection));
 		</script>
 	</body>
 </html>
