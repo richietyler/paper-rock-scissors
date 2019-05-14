@@ -18,18 +18,36 @@
 			function playRound(x, y) {
 				if (x == y) {
 					return "Tie! " + x + " is equal to " + y;
-				} else if (x > y) {
+				} else if (y > x) {
+					userScore++
 					return "You win! " + x + " beats " + y;
 				} else {
+					computerScore++
 					return "You lose! " + y + " beats " + x;
 				}
 				
 			}
 
+			let userScore = parseInt(0);
+			let computerScore = parseInt(0);
+			let i = 0;
+
+			function game() {
+
 			const computerSelection = computerPlay();
 			const playerSelection = playerPlay();
-
 			console.log(playRound(playerSelection, computerSelection));
+			console.log("Player score = " + userScore);
+			console.log("Computer's score = " + computerScore);
+			i++
+				if (i < 5) {
+					game();
+				} else {
+					console.log("Game over!");
+				}
+			}
+
+			game();
 		</script>
 	</body>
 </html>
